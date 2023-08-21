@@ -17,7 +17,7 @@ export default function App() {
       <NavigationContainer>
         <View style={styles.container}>
           <LittleLemonHeader />
-            <Drawer.Navigator useLegacyImplementation initialRouteName="LogIn" screenOptions={{drawerPosition: 'right'}}>
+            <Drawer.Navigator useLegacyImplementation initialRouteName="LogIn">
               <Drawer.Screen name="LogIn" component={LoginScreen}  options={{headerTitleAlign: 'center'}} />
               <Drawer.Screen name="Welcome" component={WelcomeScreen} options={{headerTitleAlign: 'center'}}/>
             </Drawer.Navigator>
