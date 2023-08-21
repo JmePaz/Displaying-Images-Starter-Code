@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import WelcomeScreen from './WelcomeScreen';
 import LoginScreen from './components/LogInScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Stack = createNativeStackNavigator()
+const Drawer = createDrawerNavigator()
 
 export default function App() {
 
@@ -17,10 +17,10 @@ export default function App() {
       <NavigationContainer>
         <View style={styles.container}>
           <LittleLemonHeader />
-            <Stack.Navigator initialRouteName="LogIn">
-              <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerTitleAlign: 'center'}}/>
-              <Stack.Screen name="LogIn" component={LoginScreen}  options={{headerTitleAlign: 'center'}} />
-            </Stack.Navigator>
+            <Drawer.Navigator useLegacyImplementation initialRouteName="LogIn" screenOptions={{drawerPosition: 'right'}}>
+              <Drawer.Screen name="LogIn" component={LoginScreen}  options={{headerTitleAlign: 'center'}} />
+              <Drawer.Screen name="Welcome" component={WelcomeScreen} options={{headerTitleAlign: 'center'}}/>
+            </Drawer.Navigator>
         </View>
         <View style={styles.footerContainer}>
           <LittleLemonFooter />
